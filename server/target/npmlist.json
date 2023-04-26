@@ -1,0 +1,1 @@
+{"name":"server","dependencies":{"cors":{"version":"2.8.5"},"express":{"version":"4.18.2"},"mongoose":{"version":"7.0.5"},"morgan":{"version":"1.10.0"}}}
