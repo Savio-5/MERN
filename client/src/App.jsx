@@ -1,9 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-import axios from 'axios'
-import './App.css'
 
+import Filter from "./components/Filter";
+import PersonForm from "./components/PersonForm";
+import Persons from "./components/Persons";
+import Notification from "./components/Notification";
+import personService from "./services/persons";
 
 const App = () => {
 
@@ -15,7 +18,7 @@ const App = () => {
   const [message, setMessage] = useState(null)
 
   useEffect(() => {
-    axios.get('/api/phonebook').then(allPerson => {
+    personService.getAll().then(allPerson => {
       setPersons(allPerson)
       setNewPerson(allPerson)
     })
@@ -35,7 +38,8 @@ const App = () => {
       alert(`${newName} is already added to phonebook`)
       if(window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)) {
         const changedPerson = {...person, number: newNumber}
-        axios.put(`/api/phonebook/${person.id}`,changedPerson)
+        personService
+        .update(person.id,changedPerson)
         .then(updatePerson => {
           setMessage({
             error: 'alert',
@@ -52,7 +56,7 @@ const App = () => {
         number: newNumber
       }
 
-      axios.post('/api/phonebook/insert-record',personObject).then(createPerson => {
+      personService.create(personObject).then(createPerson => {
         setMessage({
           error: 'success',
           name: `Added ${createPerson.name}`,
@@ -122,35 +126,5 @@ const App = () => {
     </div>
   )
 }
-
-
-// function App() {
-  
-
-//   return (
-//     <>
-//       {/* <div>
-//         <a href="https://vitejs.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p> */}
-//     </>
-//   )
-// }
 
 export default App

@@ -17,7 +17,7 @@ async function connect() {
 
 connect()
 
-const phoneSchema = new mongoose.Schema({
+const personSchema = new mongoose.Schema({
     name: {
         type: String,
         minLength: 5,
@@ -30,4 +30,12 @@ const phoneSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('PhoneBook', phoneSchema)
+personSchema.set('toJSON', {
+    transform: (document, returnedObject) => {
+      returnedObject.id = returnedObject._id.toString()
+      delete returnedObject._id
+      delete returnedObject.__v
+    }
+})
+
+module.exports = mongoose.model('Person', personSchema)

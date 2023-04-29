@@ -1,6 +1,6 @@
 const Filter = ({newFilter, handleFilter}) => {
   return (
-    <div>filter shown with<input type='text' value={newFilter} onChange={handleFilter}/></div>
+    <div className="m-1">filter shown with<input type='text' className="m-1" value={newFilter} onChange={handleFilter}/></div>
   )
 }
 
