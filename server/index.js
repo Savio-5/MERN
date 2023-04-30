@@ -5,7 +5,10 @@ const cors = require('cors')
 const Person = require('./models/personModel')
 
 
-app.use(cors())
+app.use(cors({
+    credentials:true,
+    optionSuccessStatus:200
+}))
 app.use(express.json())
 app.use(
     morgan(":method :url :status :res[content-length] - :response-time ms :data")
@@ -119,9 +122,9 @@ app.get('/info', (req, res, next) => {
     }
 })
 
-app.use((req, res) => {
-    res.status(404).json({ error: 'unknown endpoint' })
-})
+// app.use((req, res) => {
+//     res.status(404).json({ error: 'unknown endpoint' })
+// })
 
 app.use((error, req, res, next) => {
     console.error(error)

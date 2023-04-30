@@ -22,7 +22,7 @@ const App = () => {
       setPersons(allPerson)
       setNewPerson(allPerson)
     })
-  }, [])
+  }, [persons, newPerson])
 
   useEffect(() => {
     setTimeout(

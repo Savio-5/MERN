@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "https://savio-5-orange-space-pancake-gpr4gqr5g5ph676-3001.preview.app.github.dev/";
+const baseUrl = "https://mern-a5-hvhj.vercel.app/api/persons";
 
 const getAll = () => {
   const request = axios.get(baseUrl);
