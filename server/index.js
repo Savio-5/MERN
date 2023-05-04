@@ -53,7 +53,7 @@ app.delete('/api/persons/:id', (req, res, next) => {
     }
 })
 
-app.post('/api/persons', (req, res, next) => {
+app.post('/api/persons/add', (req, res, next) => {
     const body = req.body
 
     if (!body.name) {

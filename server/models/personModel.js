@@ -20,7 +20,7 @@ connect()
 const personSchema = new mongoose.Schema({
     name: {
         type: String,
-        minLength: 5,
+        // minLength: 5,
         required: true
     },
     number: {
