@@ -22,7 +22,7 @@ const App = () => {
       setPersons(allPerson)
       setNewPerson(allPerson)
     })
-  }, [persons, newPerson])
+  }, [])
 
   useEffect(() => {
     setTimeout(
@@ -47,6 +47,7 @@ const App = () => {
           })
           setPersons(persons.map(person => person.id !== updatePerson.id ? person : updatePerson))
           setNewPerson(persons.map(person => person.id !== updatePerson.id ? person : updatePerson))
+          window.location.reload()
         })
       }
     } else {
