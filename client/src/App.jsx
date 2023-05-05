@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 
-import Filter from "./components/Filter";
+// import Filter from "./components/Filter";
 import PersonForm from "./components/PersonForm";
 import Persons from "./components/Persons";
 import Notification from "./components/Notification";
@@ -13,7 +13,7 @@ const App = () => {
   const [persons, setPersons] = useState([])
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
-  const [newFilter, setNewFilter] = useState('')
+  // const [newFilter, setNewFilter] = useState('')
   const [newPerson, setNewPerson] = useState([])
   const [message, setMessage] = useState(null)
 
@@ -22,7 +22,7 @@ const App = () => {
       setPersons(allPerson)
       setNewPerson(allPerson)
     })
-  }, [])
+  }, [persons, newPerson])
 
   useEffect(() => {
     setTimeout(
@@ -47,7 +47,6 @@ const App = () => {
           })
           setPersons(persons.map(person => person.id !== updatePerson.id ? person : updatePerson))
           setNewPerson(persons.map(person => person.id !== updatePerson.id ? person : updatePerson))
-          window.location.reload()
         })
       }
     } else {
@@ -90,10 +89,10 @@ const App = () => {
     }
   }
 
-  function handleFilter(event) {
-    setNewFilter(event.target.value)
-    setNewPerson(persons.filter(person => person.name.toLowerCase().includes(event.target.value.toLowerCase())))
-  }
+  // function handleFilter(event) {
+  //   setNewFilter(event.target.value)
+  //   setNewPerson(persons.filter(person => person.name.toLowerCase().includes(event.target.value.toLowerCase())))
+  // }
 
   function handleChangeName(event) {
     setNewName(event.target.value)
@@ -109,9 +108,9 @@ const App = () => {
 
       <Notification message={message} />
 
-      <Filter newFilter={newFilter} handleFilter={handleFilter} />
+      {/* <Filter newFilter={newFilter} handleFilter={handleFilter} /> */}
 
-      <h3>Add a new</h3>
+      <h3 className='mt-3'>Add a new</h3>
 
       <PersonForm 
         handleEvent={handleEvent}
