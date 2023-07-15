@@ -104,13 +104,13 @@ const App = () => {
 
   return (
     <div>
-      <h2>Phonebook</h2>
+      <h2 className='m-3'>Phonebook</h2>
 
       <Notification message={message} />
 
       {/* <Filter newFilter={newFilter} handleFilter={handleFilter} /> */}
 
-      <h3 className='mt-3'>Add a new</h3>
+      <h3 className='m-3 mt-5'>Add a new</h3>
 
       <PersonForm 
         handleEvent={handleEvent}
@@ -120,7 +120,7 @@ const App = () => {
         handleChangeNumber={handleChangeNumber}
       />
 
-      <h3>Numbers</h3>
+      <h3 className='m-3 mt-5'>Numbers</h3>
 
       <Persons newPerson={newPerson} deletePerson={deletePerson}/>
     </div>

@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  fe:
+    build: client/.
+    command: npm start
+    ports:
+      - 8000:8000
+    networks:
+      - crud
+
+  be:
+    build: server/.
+    command: node index.js
+    ports:
+      - 5000:5000
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017
+    networks:
+      - crud
+
+  db:
+    image: mongo
+    hostname: mongo
+    ports:
+      - 27017:27017
+    networks:
+      - crud
+    volumes:
+      - mern:/var/lib
+
+networks:
+  crud:
+
+volumes:
+  mern:
