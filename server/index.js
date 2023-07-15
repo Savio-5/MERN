@@ -136,6 +136,6 @@ app.use((error, req, res, next) => {
     next(error)
 })
 
-app.listen(process.env.PORT || 3001, () => {
-    console.log(`Server running on port ${process.env.PORT || 3001}`)
+app.listen(5000, () => {
+    console.log(`Server running on port ${5000}`)
 })
