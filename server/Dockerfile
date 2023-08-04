@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package*.json .
 
 RUN npm ci
-ENV MONGODB_URI="mongodb://mongo:27017/notes"
+ENV MONGODB_URI="mongodb://db:27017/mydatabase"
 
 COPY . .
 
