@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: server-configmap
+data:
+  PORT: "8000"
+  MONGODBURL: mongodb://mongo-service:27017/mydatabase
