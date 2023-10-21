@@ -13,14 +13,14 @@ services:
     ports:
       - 5000:5000
     environment:
-      - MONGODB_URI=mongodb://db:27017/mydatabase
+      - MONGODB=mongodb://db:27017/mydatabase
 
   db:
     image: mongo
     ports:
       - 27017:27017
     volumes:
-      - mern:/var/lib
+      - mern:/data/db
 
 volumes:
   mern:
