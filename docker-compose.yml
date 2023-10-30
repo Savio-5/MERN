@@ -6,6 +6,8 @@ services:
     command: npm run dev
     ports:
       - 8000:8000
+    environment:
+      - VITE_BACKEND_URL=http://localhost:5000
 
   be:
     build: ./server
@@ -13,14 +15,4 @@ services:
     ports:
       - 5000:5000
     environment:
-      - MONGODB=mongodb://db:27017/mydatabase
-
-  db:
-    image: mongo
-    ports:
-      - 27017:27017
-    volumes:
-      - mern:/data/db
-
-volumes:
-  mern:
+      - MONGODB_URI=mongodb+srv://Savio:fl2SAv1byEEcHMQy@cluster-mern.gnljqnp.mongodb.net/?retryWrites=true&w=majority
